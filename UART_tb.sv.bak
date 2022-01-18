@@ -7,9 +7,9 @@ logic tx_rx;
 logic [7:0] data_tx,data_rx;
 logic en,data_ready,tx_ready;
 
-UART_TX tx(.data_i(data_tx),.s_clk_i(s_clk),.rst_i(rst),.en_i(en),.tx_o(tx_rx),.tx_ready_o(tx_ready));
+UART_TX dut(.data_i(data_tx),.s_clk_i(s_clk),.rst_i(rst),.en_i(en),.tx_o(tx_rx),.tx_ready_o(tx_ready));
 
-UART_RX rx(.rx_i(tx_rx), .s_clk_i(s_clk),.rst_i(rst),.data_o(data_rx),.data_ready_o(data_ready));
+UART_RX dut(.rx_i(tx_rx), .s_clk_i(s_clk),.rst_i(rst),.data_o(data_rx),.data_ready_o(data_ready));
 
 always #5 s_clk<=~s_clk;
 

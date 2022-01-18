@@ -44,7 +44,7 @@ module UART_TX (input logic [7:0]data_i,
 			tx_o<=1'b0;
 			tx_ready_o<=1'b1;
 		end else begin
-			tx_o<=1'b1;
+			tx_o<=1'b0;
 			tx_ready_o<=1'b0;
 			case(state)
 				state_idle:tx_ready_o<=1'b1;

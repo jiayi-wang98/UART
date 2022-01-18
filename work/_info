@@ -29,23 +29,23 @@ L0 1 0
 Z4 OV;L;2020.1;71
 31
 !s108 1642477360.000000
-!s107 C:/Users/JoeyW/Desktop/UART/RX.sv|
-Z5 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/JoeyW/Desktop/UART/RX.sv|
+Z5 !s107 C:/Users/JoeyW/Desktop/UART/RX.sv|
+Z6 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/JoeyW/Desktop/UART/RX.sv|
 !i113 1
-Z6 o-work work -sv
-Z7 tCvgOpt 0
+Z7 o-work work -sv
+Z8 tCvgOpt 0
 n@r@x_sv_unit
 vUART_RX
 R0
-Z8 !s110 1642484860
+Z9 !s110 1642484860
 !i10b 1
 !s100 1<Aa=PJL_FcnFY4RDd^U]3
-Z9 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z10 !s11b Dg1SIo80bB@j0V0VzS_@n1
 I`l^9hGg^G:Ha=S;l2fzGN1
-Z10 VDg1SIo80bB@j0V0VzS_@n1
+Z11 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R1
-Z11 w1642484720
+Z12 w1642484720
 R2
 R3
 !i122 8
@@ -54,24 +54,24 @@ R4
 r1
 !s85 0
 31
-Z12 !s108 1642484859.000000
-Z13 !s107 C:/Users/JoeyW/Desktop/UART/RX.sv|
+Z13 !s108 1642484859.000000
 R5
-!i113 1
 R6
+!i113 1
 R7
+R8
 n@u@a@r@t_@r@x
 vUART_RX_tb
 R0
-R8
+R9
 !i10b 1
 !s100 c7@M?IRH[K9UchSen@3ka3
-R9
-I>fo_SNTSf4@]WLOVz>eYB3
 R10
+I>fo_SNTSf4@]WLOVz>eYB3
+R11
 S1
 R1
-R11
+R12
 R2
 R3
 !i122 8
@@ -80,10 +80,88 @@ R4
 r1
 !s85 0
 31
-R12
 R13
 R5
-!i113 1
 R6
+!i113 1
 R7
+R8
 n@u@a@r@t_@r@x_tb
+vUART_tb
+R0
+!s110 1642487986
+!i10b 1
+!s100 FR33N6oKFRQjZmkOjMR2S0
+R10
+IInKNFe]RYYYM9e2;5bze_1
+R11
+S1
+R1
+w1642487983
+8C:/Users/JoeyW/Desktop/UART/UART_tb.sv
+FC:/Users/JoeyW/Desktop/UART/UART_tb.sv
+!i122 12
+L0 2 28
+R4
+r1
+!s85 0
+31
+!s108 1642487986.000000
+!s107 C:/Users/JoeyW/Desktop/UART/UART_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/JoeyW/Desktop/UART/UART_tb.sv|
+!i113 1
+R7
+R8
+n@u@a@r@t_tb
+vUART_TX
+R0
+Z14 !s110 1642487335
+!i10b 1
+!s100 3VJC8MkD@bJQ3kF6iSMFK0
+R10
+IFRhZgk6?h6]Y]NPVCIIk]1
+R11
+S1
+R1
+Z15 w1642487333
+Z16 8C:/Users/JoeyW/Desktop/UART/TX.sv
+Z17 FC:/Users/JoeyW/Desktop/UART/TX.sv
+!i122 11
+L0 4 91
+R4
+r1
+!s85 0
+31
+Z18 !s108 1642487335.000000
+Z19 !s107 C:/Users/JoeyW/Desktop/UART/TX.sv|
+Z20 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/JoeyW/Desktop/UART/TX.sv|
+!i113 1
+R7
+R8
+n@u@a@r@t_@t@x
+vUART_TX_tb
+R0
+R14
+!i10b 1
+!s100 EEo:QJE8@E>jS4A=OKHjJ0
+R10
+I;KZn_YzRkick8M4^H[V=M1
+R11
+S1
+R1
+R15
+R16
+R17
+!i122 11
+L0 96 25
+R4
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R7
+R8
+n@u@a@r@t_@t@x_tb
