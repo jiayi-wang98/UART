@@ -1,23 +1,17 @@
 `timescale 1ns/10ps
 //UART_RX
-//The s_clk_i is configured to be 16x higher than the baud rate. (oversample)
+//The s_clk_i is configured to be (clks_per_bit) higher than the baud rate. (oversample)
 module UART_RX (input logic rx_i, s_clk_i,rst_i,
 		output logic [7:0] data_o,
 		output logic data_ready_o);
 
-	localparam [3:0]state_idle=4'b0000,
-		state_start=4'b0001,
-		state_data_1=4'b0010,
-		state_data_2=4'b0011,
-		state_data_3=4'b0100,
-		state_data_4=4'b0101,
-		state_data_5=4'b0110,
-		state_data_6=4'b0111,
-		state_data_7=4'b1000,
-		state_data_8=4'b1001,
-		state_stop=4'b1010;
+	localparam [1:0]state_idle=2'b00,
+		state_start=2'b01,
+		state_data=2'b10,
+		state_stop=2'b11;
 		
-	logic [3:0] state,next_state;
+	logic [1:0] state,next_state;
+	logic [3:0] bit_count;
 	logic [3:0] count;// store times of samples
 	
 	
@@ -35,6 +29,15 @@ module UART_RX (input logic rx_i, s_clk_i,rst_i,
 	end
 
 	always_ff@(posedge s_clk_i,posedge rst_i) begin
+		if (rst_i) bit_count<=4'd0;
+		else begin
+			if (state!=state_data) bit_count<=4'd0; 
+			else if (count==4'd7 ) bit_count<=bit_count+4'd1;
+		end
+	end
+
+
+	always_ff@(posedge s_clk_i,posedge rst_i) begin
 		if(rst_i) begin
 			data_o<=8'h00;
 			data_ready_o<=1'b0;
@@ -42,35 +45,7 @@ module UART_RX (input logic rx_i, s_clk_i,rst_i,
 			data_o<=8'h00;
 			data_ready_o<=1'b0;
 			case(state)
-				state_data_1:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_2:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_3:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_4:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_5:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_6:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_7:begin
-					if(count==4'd7) data_o<={data_o[6:0],rx_i};
-					else data_o<=data_o;
-				end
-				state_data_8:begin
+				state_data:begin
 					if(count==4'd7) data_o<={data_o[6:0],rx_i};
 					else data_o<=data_o;
 				end
@@ -98,40 +73,13 @@ module UART_RX (input logic rx_i, s_clk_i,rst_i,
 					else next_state=state_idle;
 			end
 			state_start: begin
-					if (count==4'hf) next_state=state_data_1;
+					if (count[3]==1'b0 & rx_i==1'b1) next_state=state_idle;
+					else if (count==4'hf) next_state=state_data;
 					else next_state=state_start;
 			end
-			state_data_1: begin
-					if (count==4'hf) next_state=state_data_2;
-					else next_state=state_data_1;
-			end
-			state_data_2: begin
-					if (count==4'hf) next_state=state_data_3;
-					else next_state=state_data_2;
-			end
-			state_data_3: begin
-					if (count==4'hf) next_state=state_data_4;
-					else next_state=state_data_3;
-			end
-			state_data_4: begin
-					if (count==4'hf) next_state=state_data_5;
-					else next_state=state_data_4;
-			end
-			state_data_5: begin
-					if (count==4'hf) next_state=state_data_6;
-					else next_state=state_data_5;
-			end
-			state_data_6: begin
-					if (count==4'hf) next_state=state_data_7;
-					else next_state=state_data_6;
-			end
-			state_data_7: begin
-					if (count==4'hf) next_state=state_data_8;
-					else next_state=state_data_7;
-			end
-			state_data_8: begin
-					if (count==4'hf) next_state=state_stop;
-					else next_state=state_data_8;
+			state_data: begin
+					if (count==4'hf & bit_count[3]==1'b1) next_state=state_stop;
+					else next_state=state_data;
 			end
 			state_stop: begin
 					if (count==4'hf) next_state=rx_i?state_idle:state_start;
