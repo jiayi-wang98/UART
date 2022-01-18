@@ -1,0 +1,89 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/JoeyW/Desktop/realCPU
+XRX_sv_unit
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+!s110 1642477360
+VhIii?Uz;:7aOH2jl2`i2T0
+r1
+!s85 0
+!i10b 1
+!s100 eDD]CcgDC[ID3kD?`c]mQ1
+IhIii?Uz;:7aOH2jl2`i2T0
+!i103 1
+S1
+Z1 dC:/Users/JoeyW/Desktop/UART
+w1642477358
+Z2 8C:/Users/JoeyW/Desktop/UART/RX.sv
+Z3 FC:/Users/JoeyW/Desktop/UART/RX.sv
+!i122 2
+L0 1 0
+Z4 OV;L;2020.1;71
+31
+!s108 1642477360.000000
+!s107 C:/Users/JoeyW/Desktop/UART/RX.sv|
+Z5 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/JoeyW/Desktop/UART/RX.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+n@r@x_sv_unit
+vUART_RX
+R0
+Z8 !s110 1642477568
+!i10b 1
+!s100 OobJ8DC4gb>:f^JZZ6b2m0
+Z9 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IFAU5PoFFn[zAe8dk]NiMG3
+Z10 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R1
+Z11 w1642477564
+R2
+R3
+!i122 6
+L0 4 141
+R4
+r1
+!s85 0
+31
+Z12 !s108 1642477568.000000
+Z13 !s107 C:/Users/JoeyW/Desktop/UART/RX.sv|
+R5
+!i113 1
+R6
+R7
+n@u@a@r@t_@r@x
+vUART_RX_tb
+R0
+R8
+!i10b 1
+!s100 CFki<zAi9[H^bBOGXi1[X1
+R9
+I]?cJP@CBmSFR;H0:B@`Y;2
+R10
+S1
+R1
+R11
+R2
+R3
+!i122 6
+L0 146 38
+R4
+r1
+!s85 0
+31
+R12
+R13
+R5
+!i113 1
+R6
+R7
+n@u@a@r@t_@r@x_tb
